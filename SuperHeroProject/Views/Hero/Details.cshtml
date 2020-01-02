@@ -1,0 +1,57 @@
+﻿@model BariumDemo.Models.Hero
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<p>
+    @Html.ActionLink("Back To List", "Index")
+</p>
+<table class="table">
+    <h1>Hero Details</h1>
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.alterEgo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.primaryAbility)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.secondaryAbility)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.catchphrase)
+        </th>
+        <th></th>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.name)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.alterEgo)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.primaryAbility)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.secondaryAbility)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.catchphrase)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+    }
+
+</table>
