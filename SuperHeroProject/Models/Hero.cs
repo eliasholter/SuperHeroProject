@@ -8,6 +8,10 @@ namespace BariumDemo.Models
 {
     public class Hero
     {
+        public Hero()
+        {
+
+        }
         [Key]
         public int Id { get; set; }
         public string name { get; set; }
