@@ -56,7 +56,8 @@ namespace SuperHeroProject.Controllers
         // GET: Hero/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            Hero hero = db.Heroes.Where(h => h.Id == id).SingleOrDefault();
+            return View(hero);
         }
 
         // POST: Hero/Edit/5
@@ -66,7 +67,13 @@ namespace SuperHeroProject.Controllers
             try
             {
                 // TODO: Add update logic here
-
+                Hero updatedHero = db.Heroes.Find(id);
+                updatedHero.name = hero.name;
+                updatedHero.alterEgo = hero.alterEgo;
+                updatedHero.primaryAbility = hero.primaryAbility;
+                updatedHero.secondaryAbility = hero.secondaryAbility;
+                updatedHero.catchphrase = hero.catchphrase;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
