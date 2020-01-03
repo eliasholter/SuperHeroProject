@@ -26,7 +26,8 @@ namespace SuperHeroProject.Controllers
         // GET: Hero/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            Hero hero = db.Heroes.Find(id);
+            return View(hero);
         }
 
         // GET: Hero/Create
