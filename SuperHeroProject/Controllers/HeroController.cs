@@ -56,7 +56,7 @@ namespace SuperHeroProject.Controllers
         // GET: Hero/Edit/5
         public ActionResult Edit(int id)
         {
-            Hero hero = db.Heroes.Where(h => h.Id == id).SingleOrDefault();
+            Hero hero = db.Heroes.Find(id);
             return View(hero);
         }
 
@@ -85,7 +85,8 @@ namespace SuperHeroProject.Controllers
         // GET: Hero/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            Hero hero = db.Heroes.Find(id);
+            return View(hero);
         }
 
         // POST: Hero/Delete/5
@@ -95,7 +96,9 @@ namespace SuperHeroProject.Controllers
             try
             {
                 // TODO: Add delete logic here
-
+                hero = db.Heroes.Find(id);
+                db.Heroes.Remove(hero);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
