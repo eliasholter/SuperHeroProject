@@ -1,5 +1,6 @@
 ﻿using Microsoft.Owin;
 using Owin;
+using SuperHeroProject.Models;
 
 [assembly: OwinStartupAttribute(typeof(SuperHeroProject.Startup))]
 namespace SuperHeroProject
@@ -9,6 +10,12 @@ namespace SuperHeroProject
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            CreateRolesAndUsers();
+        }
+
+        private void CreateRolesAndUsers()
+        {
+            ApplicationDbContext context = new ApplicationDbContext();
         }
     }
 }
