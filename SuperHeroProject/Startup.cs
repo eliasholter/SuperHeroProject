@@ -44,6 +44,13 @@ namespace SuperHeroProject
                     var result1 = userManager.AddToRole(user.Id, "Admin");
                 }
             }
+
+            if (!roleManager.RoleExists("User"))
+            {
+                var role = new IdentityRole();
+                role.Name = "User";
+                roleManager.Create(role);
+            }
         }
     }
 }
